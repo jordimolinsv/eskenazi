@@ -9,6 +9,7 @@
   <meta name="description" content="<?= $site->description()->html() ?>">
 
   <?= css(array(
+    'assets/js/slick/slick.css',
     'assets/css/index.css'
   )) ?>
 

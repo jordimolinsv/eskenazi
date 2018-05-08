@@ -17,6 +17,8 @@ body {
   font-size: .75rem;
   line-height: 1.5;
   font-weight: 400;
+  margin: 0;
+  overflow-y: hidden;
 }
 
 /* font-sizes */
@@ -24,25 +26,27 @@ body {
 .info h3 {
   font-size: 100%;
 }
+.proyectos {
+  font-size: 0;
+}
+.caption {
+  font-size: .75rem;
+}
 
 /* z-index */
+.main {
+  z-index: 1;
+}
 .site-title,
 .info-btn {
   position: fixed;
   z-index: 2;
 }
-.main {
-  z-index: 1;
-}
-.fp-controlArrow {
+.caption {
   z-index: 3;
 }
-.caption {
-  position: fixed;
-  z-index: 4;
-}
 .info {
-  z-index: 5;
+  z-index: 4;
 }
 
 /* positioning */
@@ -94,43 +98,42 @@ a:hover {
 }
 
 /* slides */
-.proyecto {
-  position: relative;
+.slide {
+  height: 100vh;
+  width: 100%;
 }
-.fp-controlArrow {
-  border: 0;
+.slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* arrows */
+.slick-arrow {
+  display: none;
+}
+.next-project,
+.prev-project {
+  position: absolute;
   top: 0;
   bottom: 0;
-  width: 50% !important;
-  height: 100%;
-  margin: 0;
 }
-.fp-controlArrow.fp-prev {
-  left: 0;
-  cursor: w-resize;
-}
-.fp-controlArrow.fp-next {
+.next-project {
+  left: 50%;
   right: 0;
   cursor: e-resize;
 }
-
-@media screen and (pointer: coarse) {
-  .fp-controlArrow {
-    display: none;
-  }
-}
-
-/* images */
-.slide img {
-  display: block;
-  width: 100vw;
-  height: 100vh;
-  object-fit: cover;
-  object-position: center;
-  font-size: 0;
+.prev-project {
+  left: 0;
+  right: 50%;
+  cursor: w-resize;
 }
 
 /* captions */
+.proyecto {
+  position: relative;
+}
 .caption {
   position: absolute;
 }

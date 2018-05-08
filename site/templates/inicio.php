@@ -7,25 +7,32 @@
       $proyectos = $page->children()->visible();
       foreach($proyectos as $proyecto) :
       ?>
-      <div class="proyecto">
-        <?php foreach( $proyecto->images()->sortBy('sort', 'asc') as $imagen ) : ?>
-          <?php $thumb = $imagen->resize(2000) ?>
-          <div class="slide">
-            <img src="<?= $thumb->url() ?>" alt="<?= $proyecto->title() ?>" />
+        <div class="proyecto">
+          <div class="slides">
+            <?php foreach( $proyecto->images()->sortBy('sort', 'asc') as $imagen ) : ?>
+              <?php $thumb = $imagen->resize(2000) ?>
+              <div class="slide">
+                <img src="<?= $thumb->url() ?>" alt="<?= $proyecto->title() ?>" />
+              </div>
+            <?php endforeach ?>
           </div>
-        <?php endforeach ?>
-        <div class="caption">
-          <h3><?= $proyecto->title()->html() ?></h3>
-          <?= $proyecto->year()->html() ?><br />
-          <?php $categorias = $proyecto->categorias()->split() ?>
-          <?php foreach( $categorias as $categoria ) : ?>
-            <h4><?= $categoria ?></h4>
-          <?php endforeach ?>
-          <?php foreach( $proyecto->colaboradores()->toStructure() as $colaborador ) : ?>
-            <br /><a href="<?= $colaborador->enlace() ?>" target="_blank">
-              + <?= $colaborador->colaborador()->html() ?>
-            </a>
-          <?php endforeach ?>
+
+          <div class="caption">
+            <h3><?= $proyecto->title()->html() ?></h3>
+            <?= $proyecto->year()->html() ?><br />
+            <?php $categorias = $proyecto->categorias()->split() ?>
+            <?php foreach( $categorias as $categoria ) : ?>
+              <h4><?= $categoria ?></h4>
+            <?php endforeach ?>
+            <?php foreach( $proyecto->colaboradores()->toStructure() as $colaborador ) : ?>
+              <br /><a href="<?= $colaborador->enlace() ?>" target="_blank">
+                + <?= $colaborador->colaborador()->html() ?>
+              </a>
+            <?php endforeach ?>
+          </div>
+
+          <div class="next-project"></div>
+          <div class="prev-project"></div>
         </div>
       <?php endforeach ?>
     </div>
