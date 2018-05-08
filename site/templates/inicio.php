@@ -2,37 +2,31 @@
 
   <main class="main" role="main">
 
-    <div class="proyectos section" data-anchor="p">
+    <div class="proyectos">
       <?php
       $proyectos = $page->children()->visible();
       foreach($proyectos as $proyecto) :
       ?>
+      <div class="proyecto">
         <?php foreach( $proyecto->images()->sortBy('sort', 'asc') as $imagen ) : ?>
-          <?php
-          $ph = $imagen->resize(300);
-          $thumb = $imagen->resize(2000);
-          ?>
-          <div class="proyecto slide" data-anchor="<?= $proyecto->slug() ?>" style="background: url(<?= $ph->url() ?>) no-repeat center center; background-size: cover;">
-            <img data-src="<?= $thumb->url() ?>" alt="<?= $proyecto->title() ?>" />
-
-            <div class="caption">
-              <h3><?= $proyecto->title()->html() ?></h3>
-              <?= $proyecto->year()->html() ?><br />
-              <?php $categorias = $proyecto->categorias()->split() ?>
-              <?php foreach( $categorias as $categoria ) : ?>
-                <h4><?= $categoria ?></h4>
-              <?php endforeach ?>
-              <?php foreach( $proyecto->colaboradores()->toStructure() as $colaborador ) : ?>
-                <br /><a href="<?= $colaborador->enlace() ?>" target="_blank">
-                  + <?= $colaborador->colaborador()->html() ?>
-                </a>
-              <?php endforeach ?>
-            </div>
-
-            <div class="fp-controlArrow fp-prev" href="#"></div>
-            <div class="fp-controlArrow fp-next" href="#"></div>
+          <?php $thumb = $imagen->resize(2000) ?>
+          <div class="slide">
+            <img src="<?= $thumb->url() ?>" alt="<?= $proyecto->title() ?>" />
           </div>
         <?php endforeach ?>
+        <div class="caption">
+          <h3><?= $proyecto->title()->html() ?></h3>
+          <?= $proyecto->year()->html() ?><br />
+          <?php $categorias = $proyecto->categorias()->split() ?>
+          <?php foreach( $categorias as $categoria ) : ?>
+            <h4><?= $categoria ?></h4>
+          <?php endforeach ?>
+          <?php foreach( $proyecto->colaboradores()->toStructure() as $colaborador ) : ?>
+            <br /><a href="<?= $colaborador->enlace() ?>" target="_blank">
+              + <?= $colaborador->colaborador()->html() ?>
+            </a>
+          <?php endforeach ?>
+        </div>
       <?php endforeach ?>
     </div>
 
