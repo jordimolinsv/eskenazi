@@ -1,0 +1,24 @@
+title: Inicio
+options:
+  status: false
+  template: false
+  url: false
+  delete: false
+pages:
+  template: proyecto
+fields:
+  title:
+    label: Título
+    type:  text
+  bio:
+    label: Bio
+    type: textarea
+  clientes:
+    label: Clientes
+    type: textarea
+  contacto:
+    label: Contacto
+    type: textarea
+  imagen:
+    label: Imagen
+    type: image

@@ -1,0 +1,25 @@
+title: Proyecto
+pages: false
+fields:
+  title:
+    label: Título
+    type: text
+    width: 3/4
+  year:
+    label: Año
+    type: text
+    width: 1/4
+  categorias:
+    label: Categoría(s)
+    type: tags
+  colaboradores:
+    label: Colaboradores
+    type: structure
+    fields:
+      colaborador:
+        label: Colaborador
+        type: text
+      enlace:
+        label: Enlace
+        type: url
+    entry: + {{colaborador}}
