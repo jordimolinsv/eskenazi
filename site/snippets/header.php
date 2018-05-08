@@ -9,7 +9,6 @@
   <meta name="description" content="<?= $site->description()->html() ?>">
 
   <?= css(array(
-    'assets/css/jquery.fullpage.min.css',
     'assets/css/index.css'
   )) ?>
 
