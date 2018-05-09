@@ -79,11 +79,8 @@ body {
 .caption {
   bottom: .75rem;
 }
-.bio,
-.clientes,
-.contacto {
-  margin-top: .75rem;
-  margin-bottom: .75rem;
+.info {
+  padding: .75rem;
 }
 
 /* menu */
@@ -161,11 +158,13 @@ body,
 
 /* info */
 .info {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   right: 0;
+  bottom: 0;
   background: white;
+  overflow-y: scroll;
   display: none;
 }
 .close-info {
@@ -176,7 +175,18 @@ body,
   font-weight: 400;
   margin: 0;
 }
-.bio,
+.info > div {
+  margin-bottom: 2rem;
+}
+.imagen {
+  margin-bottom: 0 !important;
+}
+.imagen img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+/* .bio,
 .clientes,
 .contacto {
   display: inline-block;
@@ -189,12 +199,7 @@ body,
 .clientes,
 .contacto {
   width: 15%;
-}
-.bio img {
-  display: block;
-  margin-top: 3em;
-  max-width: 100%;
-}
+} */
 
 /* error */
 .error .text {
