@@ -45,9 +45,6 @@
     <div class="bio">
       <h3>Bio</h3>
       <?= page('home')->bio()->kirbytext() ?>
-      <?php if($imagen = page('home')->imagen()->toFile()): ?>
-        <img src="<?= $imagen->url() ?>" />
-      <?php endif ?>
     </div>
 
     <div class="clientes">
@@ -59,6 +56,12 @@
       <h3>Contacto</h3>
       <?= page('home')->contacto()->kirbytext() ?>
     </div>
+
+    <?php if($imagen = page('home')->imagen()->toFile()): ?>
+      <div class="imagen">
+        <img src="<?= $imagen->url() ?>" />
+      </div>
+    <?php endif ?>
   </div>
 
 <?php snippet('footer') ?>
