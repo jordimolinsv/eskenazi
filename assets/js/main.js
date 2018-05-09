@@ -18,13 +18,16 @@ $(document).ready(function() {
 
 	/* Get hash and go to slide */
 	if(window.location.hash) {
-		$('.proyectos').slick('slickGoTo', window.location.hash.substring(1));
+		var hash = window.location.hash.substring(1);
+		var index = $('.slide[data-slug="' + hash + '"]').first().attr('data-index');
+		$('.proyectos').slick('slickGoTo', index);
 	}
 
 	/* Update URL */
 	$('.proyectos').on('beforeChange', function(event, slick, currentSlide, nextSlide){
 		var baseUrl = window.location.href.split('#')[0];
-		window.location.replace( baseUrl + '#' + nextSlide );
+		var slug = $('.slide[data-index="' + nextSlide + '"]').attr('data-slug');
+		window.location.replace( baseUrl + '#' + slug );
 	});
 
 });

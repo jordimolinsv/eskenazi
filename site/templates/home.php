@@ -5,11 +5,14 @@
     <div class="proyectos">
       <?php
       $proyectos = $page->children()->visible();
+      $proyectoSlug = '';
+      $numSlide = 0;
       foreach($proyectos as $proyecto) :
+        if( $proyecto->slug() != $proyectoSlug ) $proyectoSlug = $proyecto->slug();
         foreach( $proyecto->images()->sortBy('sort', 'asc') as $imagen ) :
           $thumb = $imagen->resize(2000);
           ?>
-          <div class="slide">
+          <div class="slide" data-slug="<?= $proyectoSlug ?>" data-index="<?= $numSlide ?>">
             <img src="<?= $thumb->url() ?>" alt="<?= $proyecto->title() ?>" />
 
             <div class="prev-slide"></div>
@@ -29,6 +32,7 @@
               <?php endforeach ?>
             </div>
           </div>
+          <?php $numSlide++ ?>
         <?php endforeach ?>
       <?php endforeach ?>
     </div>
