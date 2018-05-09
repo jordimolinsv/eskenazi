@@ -8,20 +8,10 @@ $(document).ready(function() {
 
 	/* Slick projects */
 	$('.proyectos').slick({
-		draggable: false,
+		// draggable: false,
 		fade: true,
 		mobileFirst: true,
 		infinite: true,
-		prevArrow: $('.prev-project'),
-		nextArrow: $('.next-project')
-	});
-
-	/* Slick slides */
-	$('.slides').slick({
-		draggable: false,
-		fade: true,
-		mobileFirst: true,
-		infinite: false,
 		prevArrow: $('.prev-slide'),
 		nextArrow: $('.next-slide')
 	});

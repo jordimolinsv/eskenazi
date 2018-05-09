@@ -6,40 +6,30 @@
       <?php
       $proyectos = $page->children()->visible();
       foreach($proyectos as $proyecto) :
-      ?>
-        <div class="proyecto">
-          <?php
-          $imagenes = $proyecto->images()->sortBy('sort', 'asc');
-          if( count($imagenes) > 1 ) echo '<div class="slides">';
+        foreach( $proyecto->images()->sortBy('sort', 'asc') as $imagen ) :
+          $thumb = $imagen->resize(2000);
           ?>
-            <?php foreach( $imagenes as $imagen ) : ?>
-              <?php $thumb = $imagen->resize(2000) ?>
-              <div class="slide">
-                <img src="<?= $thumb->url() ?>" alt="<?= $proyecto->title() ?>" />
-              </div>
-            <?php endforeach ?>
-          <?php if( count($imagenes) > 1 ) echo '</div>'; ?>
+          <div class="slide">
+            <img src="<?= $thumb->url() ?>" alt="<?= $proyecto->title() ?>" />
 
-          <div class="caption">
-            <h3><?= $proyecto->title()->html() ?></h3>
-            <?= $proyecto->year()->html() ?><br />
-            <?php $categorias = $proyecto->categorias()->split() ?>
-            <?php foreach( $categorias as $categoria ) : ?>
-              <h4><?= $categoria ?></h4>
-            <?php endforeach ?>
-            <?php foreach( $proyecto->colaboradores()->toStructure() as $colaborador ) : ?>
-              <br /><a href="<?= $colaborador->enlace() ?>" target="_blank">
-                + <?= $colaborador->colaborador()->html() ?>
-              </a>
-            <?php endforeach ?>
+            <div class="prev-slide"></div>
+            <div class="next-slide"></div>
+
+            <div class="caption">
+              <h3><?= $proyecto->title()->html() ?></h3>
+              <?= $proyecto->year()->html() ?><br />
+              <?php $categorias = $proyecto->categorias()->split() ?>
+              <?php foreach( $categorias as $categoria ) : ?>
+                <h4><?= $categoria ?></h4>
+              <?php endforeach ?>
+              <?php foreach( $proyecto->colaboradores()->toStructure() as $colaborador ) : ?>
+                <br /><a href="<?= $colaborador->enlace() ?>" target="_blank">
+                  + <?= $colaborador->colaborador()->html() ?>
+                </a>
+              <?php endforeach ?>
+            </div>
           </div>
-
-          <div class="prev-project"></div>
-          <div class="next-project"></div>
-
-          <div class="prev-slide"></div>
-          <div class="next-slide"></div>
-        </div>
+        <?php endforeach ?>
       <?php endforeach ?>
     </div>
 
