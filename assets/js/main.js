@@ -8,7 +8,7 @@ $(document).ready(function() {
 
 	/* Slick projects */
 	$('.proyectos').slick({
-		// draggable: false,
+		autoplay: true,
 		fade: true,
 		mobileFirst: true,
 		infinite: true,
