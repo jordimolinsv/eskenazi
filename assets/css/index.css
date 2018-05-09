@@ -56,11 +56,17 @@ body {
 }
 
 /* positioning */
+.proyectos {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
 .site-title,
 .caption {
   left: .75rem;
 }
-
 .info-btn,
 .close-info {
   right: .75rem;
@@ -96,9 +102,16 @@ a:hover {
 }
 
 /* slides */
+html,
+body,
+.main,
+.proyectos,
+.slick-list,
+.slick-track,
+.slick-slide,
+.slick-slide > div,
 .slide {
-  height: 100vh;
-  width: 100%;
+  height: 100%;
 }
 .slide img {
   width: 100%;
