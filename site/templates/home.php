@@ -8,14 +8,17 @@
       foreach($proyectos as $proyecto) :
       ?>
         <div class="proyecto">
-          <div class="slides">
-            <?php foreach( $proyecto->images()->sortBy('sort', 'asc') as $imagen ) : ?>
+          <?php
+          $imagenes = $proyecto->images()->sortBy('sort', 'asc');
+          if( count($imagenes) > 1 ) echo '<div class="slides">';
+          ?>
+            <?php foreach( $imagenes as $imagen ) : ?>
               <?php $thumb = $imagen->resize(2000) ?>
               <div class="slide">
                 <img src="<?= $thumb->url() ?>" alt="<?= $proyecto->title() ?>" />
               </div>
             <?php endforeach ?>
-          </div>
+          <?php if( count($imagenes) > 1 ) echo '</div>'; ?>
 
           <div class="caption">
             <h3><?= $proyecto->title()->html() ?></h3>
@@ -31,8 +34,11 @@
             <?php endforeach ?>
           </div>
 
-          <div class="next-project"></div>
           <div class="prev-project"></div>
+          <div class="next-project"></div>
+
+          <div class="prev-slide"></div>
+          <div class="next-slide"></div>
         </div>
       <?php endforeach ?>
     </div>

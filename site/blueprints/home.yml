@@ -1,11 +1,13 @@
-title: Inicio
+title: Home
 options:
   status: false
   template: false
   url: false
   delete: false
+
 pages:
   template: proyecto
+  
 fields:
   title:
     label: Título
