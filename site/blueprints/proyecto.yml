@@ -1,5 +1,11 @@
 title: Proyecto
 pages: false
+files:
+  sortable: true
+
+options:
+  preview: false
+  url: false
 fields:
   title:
     label: Título
