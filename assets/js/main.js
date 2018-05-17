@@ -31,7 +31,7 @@ $(document).ready(function() {
 			$(this).css('color', 'black');
 		});
 	};
-	var defaultColor = '#777';
+	var defaultColor = '#333';
 	var currColor = $('.slick-current .slide').attr('data-color');
 	if(!currColor) currColor = defaultColor;
 	linkColor(currColor);
