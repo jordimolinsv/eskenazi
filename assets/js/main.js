@@ -8,7 +8,7 @@ $(document).ready(function() {
 
 	/* Slick projects */
 	$('.proyectos').slick({
-		autoplay: true,
+		// autoplay: true,
 		fade: true,
 		mobileFirst: true,
 		infinite: true,
@@ -23,10 +23,29 @@ $(document).ready(function() {
 		$('.proyectos').slick('slickGoTo', index);
 	}
 
-	/* Update URL */
+	/* Link color */
+	var linkColor = function(color) {
+		$('a').hover(function() {
+			$(this).css('color', color);
+		}, function(){
+			$(this).css('color', 'black');
+		});
+	};
+	var defaultColor = '#777';
+	var currColor = $('.slick-current .slide').attr('data-color');
+	if(!currColor) currColor = defaultColor;
+	linkColor(currColor);
+
+	/* Slick on beforeChange */
 	$('.proyectos').on('beforeChange', function(event, slick, currentSlide, nextSlide){
+		var $nextSlide = $('.slide[data-index="' + nextSlide + '"]');
+		/* Change link color */
+		var dataColor = $nextSlide.attr('data-color');
+		if(!dataColor) dataColor = defaultColor;
+		linkColor(dataColor);
+		/* Update URL */
 		var baseUrl = window.location.href.split('#')[0];
-		var slug = $('.slide[data-index="' + nextSlide + '"]').attr('data-slug');
+		var slug = $nextSlide.attr('data-slug');
 		window.location.replace( baseUrl + '#' + slug );
 	});
 

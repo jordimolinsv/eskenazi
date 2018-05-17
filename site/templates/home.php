@@ -12,7 +12,7 @@
         foreach( $proyecto->images()->sortBy('sort', 'asc') as $imagen ) :
           $thumb = $imagen->resize(2000);
           ?>
-          <div class="slide" data-slug="<?= $proyectoSlug ?>" data-index="<?= $numSlide ?>">
+          <div class="slide" data-slug="<?= $proyectoSlug ?>" data-index="<?= $numSlide ?>" data-color="<?= $proyecto->color() ?>">
             <img src="<?= $thumb->url() ?>" alt="<?= $proyecto->title() ?>" />
 
             <div class="prev-slide"></div>

@@ -6,6 +6,7 @@ files:
 options:
   preview: false
   url: false
+
 fields:
   title:
     label: Título
@@ -18,6 +19,11 @@ fields:
   categorias:
     label: Categoría(s)
     type: tags
+    width: 3/4
+  color:
+    label: Color enlaces
+    type: color
+    width: 1/4
   colaboradores:
     label: Colaboradores
     type: structure
