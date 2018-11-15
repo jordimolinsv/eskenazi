@@ -9,11 +9,9 @@
       $numSlide = 0;
       foreach($proyectos as $proyecto) :
         if( $proyecto->slug() != $proyectoSlug ) $proyectoSlug = $proyecto->slug();
-        foreach( $proyecto->images()->sortBy('sort', 'asc') as $imagen ) :
-          $thumb = $imagen->resize(2000);
-          ?>
+        foreach( $proyecto->images()->sortBy('sort', 'asc') as $imagen ) : ?>
           <div class="slide" data-slug="<?= $proyectoSlug ?>" data-index="<?= $numSlide ?>" data-color="<?= $proyecto->color() ?>">
-            <img src="<?= $thumb->url() ?>" alt="<?= $proyecto->title() ?>" />
+            <img src="<?= $imagen->url() ?>" alt="<?= $proyecto->title() ?>" />
 
             <div class="prev-slide"></div>
             <div class="next-slide"></div>
