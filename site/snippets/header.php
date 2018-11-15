@@ -5,6 +5,10 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
 
+  <?php if($page->parent()->slug() === 'home') : ?>
+    <meta name="robots" content="noindex" />
+  <?php endif ?>
+
   <title><?= $site->title()->html() ?></title>
   <meta name="description" content="<?= $site->description()->html() ?>">
 
