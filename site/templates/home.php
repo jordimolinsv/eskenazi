@@ -10,7 +10,7 @@
       foreach($proyectos as $proyecto) :
         if( $proyecto->slug() != $proyectoSlug ) $proyectoSlug = $proyecto->slug();
         foreach( $proyecto->images()->sortBy('sort', 'asc') as $imagen ) : ?>
-          <div class="slide" data-slug="<?= $proyectoSlug ?>" data-index="<?= $numSlide ?>" data-color="<?= $proyecto->color() ?>">
+          <div class="slide" data-slug="<?= $proyectoSlug ?>" data-index="<?= $numSlide ?>" data-color="<?= $proyecto->color() ?>" data-color_texto="<?= $proyecto->color_texto() ?>">
             <img src="<?= $imagen->url() ?>" alt="<?= $proyecto->title() ?>" />
 
             <div class="prev-slide"></div>
@@ -41,7 +41,7 @@
     <a class="close-info" href="#">X Close</a>
 
     <div class="bio">
-      <h3>Bio</h3>
+      <h3>Mario Eskenazi Estudio</h3>
       <?= page('home')->bio()->kirbytext() ?>
 
       <?php if($imagen = page('home')->imagen()->toFile()): ?>
@@ -52,12 +52,12 @@
     </div>
 
     <div class="clientes">
-      <h3>Clientes</h3>
+      <h3>Main Clients</h3>
       <?= page('home')->clientes()->kirbytext() ?>
     </div>
 
     <div class="contacto">
-      <h3>Contacto</h3>
+      <h3>Contact</h3>
       <?= page('home')->contacto()->kirbytext() ?>
     </div>
   </div>

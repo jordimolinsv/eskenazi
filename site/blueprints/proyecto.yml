@@ -19,11 +19,18 @@ fields:
   categorias:
     label: Categoría(s)
     type: tags
-    width: 3/4
+  color_texto:
+    label: Color texto
+    type: radio
+    default: black
+    options:
+      black: Negro
+      white: Blanco
+    width: 1/2
   color:
     label: Color enlaces
     type: color
-    width: 1/4
+    width: 1/2
   colaboradores:
     label: Colaboradores
     type: structure

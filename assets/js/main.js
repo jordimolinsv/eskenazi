@@ -24,17 +24,24 @@ $(document).ready(function() {
 	}
 
 	/* Link color */
+	var currTextColor = $('.slick-current .slide').attr('data-color_texto');
 	var linkColor = function(color) {
 		$('a').hover(function() {
 			$(this).css('color', color);
 		}, function(){
-			$(this).css('color', 'black');
+			$(this).css('color', currTextColor);
 		});
 	};
 	var defaultColor = '#333';
 	var currColor = $('.slick-current .slide').attr('data-color');
 	if(!currColor) currColor = defaultColor;
 	linkColor(currColor);
+
+	/* Text color */
+	var textColor = function(color) {
+		$('body, a').css('color', color);
+	}
+	textColor(currTextColor);
 
 	/* Slick on beforeChange */
 	$('.proyectos').on('beforeChange', function(event, slick, currentSlide, nextSlide){
@@ -43,6 +50,9 @@ $(document).ready(function() {
 		var dataColor = $nextSlide.attr('data-color');
 		if(!dataColor) dataColor = defaultColor;
 		linkColor(dataColor);
+		/* Change text color */
+		var dataTextColor = $nextSlide.attr('data-color_texto');
+		textColor(dataTextColor);
 		/* Update URL */
 		var baseUrl = window.location.href.split('#')[0];
 		var slug = $nextSlide.attr('data-slug');
