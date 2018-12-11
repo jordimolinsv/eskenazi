@@ -23,36 +23,36 @@ $(document).ready(function() {
 		$('.proyectos').slick('slickGoTo', index);
 	}
 
-	/* Link color */
+	/* Text color */
+	var changeTextColor = function(color) {
+		$('.site-title a, .info-btn, .caption, .caption a').css('color', color);
+	}
 	var currTextColor = $('.slick-current .slide').attr('data-color_texto');
+	changeTextColor(currTextColor);
+
+	/* Link color */
 	var linkColor = function(color) {
 		$('a').hover(function() {
 			$(this).css('color', color);
 		}, function(){
-			$(this).css('color', currTextColor);
+			var currTextColor = $('.slick-current .slide').attr('data-color_texto');
+			$('.site-title a, .info-btn, .caption a').css('color', currTextColor);
+			$('.info a').css('color', 'black');
 		});
 	};
-	var defaultColor = '#333';
 	var currColor = $('.slick-current .slide').attr('data-color');
-	if(!currColor) currColor = defaultColor;
 	linkColor(currColor);
-
-	/* Text color */
-	var textColor = function(color) {
-		$('body, a').css('color', color);
-	}
-	textColor(currTextColor);
 
 	/* Slick on beforeChange */
 	$('.proyectos').on('beforeChange', function(event, slick, currentSlide, nextSlide){
 		var $nextSlide = $('.slide[data-index="' + nextSlide + '"]');
 		/* Change link color */
 		var dataColor = $nextSlide.attr('data-color');
-		if(!dataColor) dataColor = defaultColor;
+		if(!dataColor) dataColor = 'red';
 		linkColor(dataColor);
 		/* Change text color */
 		var dataTextColor = $nextSlide.attr('data-color_texto');
-		textColor(dataTextColor);
+		changeTextColor(dataTextColor);
 		/* Update URL */
 		var baseUrl = window.location.href.split('#')[0];
 		var slug = $nextSlide.attr('data-slug');

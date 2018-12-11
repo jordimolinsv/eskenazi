@@ -187,6 +187,7 @@ body,
   right: 0;
   bottom: 0;
   background: white;
+  color: black;
   overflow-y: scroll;
   display: none;
 }
