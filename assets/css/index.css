@@ -154,12 +154,12 @@ body,
 .prev-slide {
   left: 0;
   right: 50%;
-  cursor: w-resize;
+  cursor: url(../images/w_flecha_izquierda.png), w-resize;
 }
 .next-slide {
   left: 50%;
   right: 0;
-  cursor: e-resize;
+  cursor: url(../images/w_flecha_derecha.png), e-resize;
 }
 
 /* captions */
