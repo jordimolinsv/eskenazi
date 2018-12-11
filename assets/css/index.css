@@ -207,11 +207,11 @@ body,
   margin-bottom: 1.5rem;
 }
 .bio {
-  max-width: 424px;
+  max-width: 500px;
 }
 .clientes,
 .contacto {
-  max-width: 200px;
+  max-width: 250px;
 }
 .imagen {
   margin-top: 2rem;
