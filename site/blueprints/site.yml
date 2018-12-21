@@ -2,9 +2,9 @@ title: Site
 
 fields:
   title:
-    label: Title
+    label: Título
     type:  text
 
   description:
-    label: Description
+    label: Descripción
     type:  textarea
