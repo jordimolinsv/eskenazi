@@ -41,7 +41,7 @@
     <a class="close-info" href="#">X Close</a>
 
     <div class="bio">
-      <h3>Mario Eskenazi Estudio</h3>
+      <h3><?= $site->title()->html() ?></h3>
       <?= page('home')->bio()->kirbytext() ?>
 
       <?php if($imagen = page('home')->imagen()->toFile()): ?>
