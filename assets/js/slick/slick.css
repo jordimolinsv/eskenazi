@@ -74,14 +74,20 @@
     visibility: hidden;
 }
 
+/* https://github.com/kenwheeler/slick/issues/295#issuecomment-233310233 */
 .slick-slide
 {
     display: none;
-    float: left;
+    /* float: left; */
 
     height: 100%;
     min-height: 1px;
 }
+.slick-slide { float: none; }
+.slick-active { left: 0 !important; position: absolute !important; top: 0 !important; }
+/* https://github.com/kenwheeler/slick/issues/295#issuecomment-233310233 */
+
+
 [dir='rtl'] .slick-slide
 {
     float: right;
