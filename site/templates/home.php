@@ -11,7 +11,7 @@
         if( $proyecto->slug() != $proyectoSlug ) $proyectoSlug = $proyecto->slug();
         foreach( $proyecto->images()->sortBy('sort', 'asc') as $imagen ) : ?>
           <div class="slide" data-slug="<?= $proyectoSlug ?>" data-index="<?= $numSlide ?>" data-color="<?= $proyecto->color() ?>" data-color_texto="<?= $proyecto->color_texto() ?>">
-            <img src="<?= $imagen->url() ?>" alt="<?= $proyecto->title() ?>" />
+            <img data-lazy="<?= $imagen->url() ?>" alt="<?= $proyecto->title() ?>" />
 
             <div class="prev-slide"></div>
             <div class="next-slide"></div>
